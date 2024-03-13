@@ -1165,7 +1165,7 @@ EOF
 # build hummingbot
 if [ "$IS_HUMMINGBOT_ENABLED" = "True" ]; then
 cd /app/ttmbase || exit
-git clone  https://github.com/Polygant/hummingbot.git ./hmbot
+git clone  https://github.com/ttmbase/hummingbot.git ./hmbot
 cd ./hmbot
 docker build -t hummingbot:latest -f Dockerfile --target=release .
 cat << EOF >> /app/ttmbase/docker-compose.yml
