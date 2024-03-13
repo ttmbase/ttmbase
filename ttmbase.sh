@@ -18,10 +18,10 @@ fi
 
 mkdir /app/ttmbase -p
 cd /app/ttmbase || exit
-git clone  https://github.com/ttmbase/OpenCEX-backend.git ./backend
-git clone  https://github.com/ttmbase/OpenCEX-frontend.git ./frontend
-git clone  https://github.com/ttmbase/OpenCEX-static.git ./nuxt
-git clone  https://github.com/ttmbase/OpenCEX-JS-admin.git ./admin
+git clone  https://github.com/ttmbase/ttmbase-backend.git ./backend
+git clone  https://github.com/ttmbase/ttmbase-frontend.git ./frontend
+git clone  https://github.com/ttmbase/ttmbase-static.git ./nuxt
+git clone  https://github.com/ttmbase/ttmbase-JS-admin.git ./admin
 
 echo "`cat <<YOLLOPUKKI
 
@@ -1165,7 +1165,7 @@ EOF
 # build hummingbot
 if [ "$IS_HUMMINGBOT_ENABLED" = "True" ]; then
 cd /app/ttmbase || exit
-git clone  https://github.com/ttmbase/hummingbot.git ./hmbot
+git clone  https://github.com/Polygant/hummingbot.git ./hmbot
 cd ./hmbot
 docker build -t hummingbot:latest -f Dockerfile --target=release .
 cat << EOF >> /app/ttmbase/docker-compose.yml
@@ -1242,7 +1242,7 @@ cd /app/ttmbase || exit
 docker compose stop
 docker compose up -d
 
-### Registration of the installation OpenCEX
+### Registration of the installation TTMBASE
 curl --location 'http://alertbot.plgdev.com/registration' \
 --header 'Content-Type: application/json' \
 --data "{\"domain\": \"${DOMAIN}\"}"
