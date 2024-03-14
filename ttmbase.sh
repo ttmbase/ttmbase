@@ -25,18 +25,17 @@ git clone  https://github.com/ttmbase/ttmbase-JS-admin.git ./admin
 
 echo "`cat <<YOLLOPUKKI
 
+   ________   ________    __      __        ______         ______         _______    ________
+  /       /| /       /|  / /|    / /|      /     /\       /     /|       /      /|  /       /|
+  00000000 | 00000000 |  00/\ ___00 |      000000  \      000000/        0000000/   00000000/
+  00000000/  00000000/   000 /  000/\      00 __00 /\     00  00 \      00 |____    00 |___
+     00 |       00 |     00 00 00 00 \     00/   00 |    00____00 \     00/    /|   00/   /|
+     00 |       00 |    00 / 00_/  00 \    0000000_/|   00/     00 \    0000000/_   000000/
+     00 |       00 |   00 /         00 \   00 ___00 /  000000000000 \    _____00 \  00 |_____
+     00 |       00 |  00 /           00 \  00/  00 /  00 /        00 \  /     00 |  00/     /|
+     00/        00/  00_/             00/  000000_/  00_/          00/  0000000_/   00000000/
+    
 
- 000000\                                 000000\  00000000\ 00\   00\ 
-00  __00\                               00  __00\ 00  _____|00 |  00 |
-00 /  00 | 000000\   000000\  0000000\  00 /  \__|00 |      \00\ 00  |
-00 |  00 |00  __00\ 00  __00\ 00  __00\ 00 |      00000\     \0000  / 
-00 |  00 |00 /  00 |00000000 |00 |  00 |00 |      00  __|    00  00<  
-00 |  00 |00 |  00 |00   ____|00 |  00 |00 |  00\ 00 |      00  /\00\ 
- 000000  |0000000  |\0000000\ 00 |  00 |\000000  |00000000\ 00 /  00 |
- \______/ 00  ____/  \_______|\__|  \__| \______/ \________|\__|  \__|
-          00 |                                                        
-          00 |                                                        
-          \__|  
 
 Hello! This is TTMBASE Setup. Please enter parameters for your exchange.
 If you make a mistake when entering a parameter, don't worry, 
@@ -1155,7 +1154,7 @@ services:
     hellard:
       container_name: hellard
       restart: always
-      image: lncm/hellard:v2.0.4.9
+      image: hellarpay/hellard:latest
       volumes:
       - ./hellard_data/:/data/.hellar/
       networks:
@@ -1165,7 +1164,7 @@ EOF
 # build hummingbot
 if [ "$IS_HUMMINGBOT_ENABLED" = "True" ]; then
 cd /app/ttmbase || exit
-git clone  https://github.com/Polygant/hummingbot.git ./hmbot
+git clone  https://github.com/ttmbase/hummingbot.git ./hmbot
 cd ./hmbot
 docker build -t hummingbot:latest -f Dockerfile --target=release .
 cat << EOF >> /app/ttmbase/docker-compose.yml
